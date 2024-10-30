@@ -4,7 +4,7 @@ from celery import Celery
 #when the tasks are define in __main__
 
 #the second argument is the broker keyword argument, specifying the url of the message broker
-app = Celery('tasks', broker='pyamqp://guest@localhost//')
+app = Celery('tasks', backend='rpc://', broker='pyamqp://')
 
 @app.task
 def add(x, y):
